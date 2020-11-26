@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+    display: flex;
+}
+
+.d-none {
+    display: none;
+}
+
+.w-35 {
+    width: 35%;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.title {
+    font-size: 27px;
+    padding: 20px 30px;
+    border-left: 1px solid #d6d9dc;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.flex-end {
+    justify-content: flex-end;
+}

@@ -1,0 +1,48 @@
+.users__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 30px;
+    border-left: 1px solid #d6d9dc;
+    border-bottom: 1px solid #d6d9dc;
+}
+
+.user {
+    width: 30%;
+    display: flex;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.user:not(:nth-child(3n)) {
+    margin-right: 5%;
+}
+
+.user__icon {
+    width: 48px;
+    height: 48px;
+}
+
+.user__describe {
+    margin-left: 9px;
+    line-height: 1.2em;
+}
+
+.user__title {
+    color: #0077cc;
+    font-size: 14px;
+}
+
+.user__info,
+.user__number {
+    font-size: 12px;
+    margin-bottom: 2px;
+    color: #6a737c;
+}
+
+.user__number {
+    font-weight: bold;
+}
+
+.user__skils {
+    color: #0077cc;
+}

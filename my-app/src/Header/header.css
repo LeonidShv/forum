@@ -1,0 +1,146 @@
+.header {
+  padding: 0 100px;
+  line-height: 50px;
+  background: #fafafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0;
+  border-top: 3px solid #f48024;
+  box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+  font-family: 'Kalam', cursive;
+}
+
+.header__logo {
+  text-decoration: none;
+  line-height: 37px;
+  background: #fafafb;
+  border: 0;
+  outline: none;
+}
+
+.header__logo-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.header__logo-text {
+  padding-left: 10px;
+  color: #000;
+  font-size: 1.4em;
+}
+
+.header__photo {
+  display: block;
+}
+
+.header__user {
+  display: flex;
+  align-items: center;
+}
+
+.header__login {
+  color: #000;
+  font-size: 1.4em;
+  margin-left: 15px;
+}
+
+.header__photo {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.header__nav {
+  position: relative;
+  display: flex;
+}
+
+.nav__burger {
+  background: #fafafb;
+  border: 0;
+  outline: 0;
+  line-height: 10px;
+}
+
+.nav__list {
+  position: absolute;
+  right: 0;
+  top: 37px;
+  box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+  min-width: 200px;
+  background: #fff;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.nav__item {
+  border-bottom: 1px solid #cbcfd3;
+  cursor: pointer;
+}
+
+.nav__item:hover {
+  background: #fafafb;
+  border-left: 1px solid #f48024;
+}
+
+.nav__btn {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: #0077cc;
+  border: 0;
+  background: #fff;
+  outline: none;
+  line-height: 2.5em;
+}
+
+.nav__item:last-child {
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.toggle-d {
+  display: none;
+}
+
+.nav__burger-icon{
+  fill: #848d94;
+}
+
+.burger-icon__toggle {
+  fill: #000;
+}
+
+@media (max-width: 950px) {
+  .header {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .header__logo-text {
+    display: none;
+  }
+}
+
+@media (max-width: 510px) {
+  .header__photo {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .header__login {
+    display: none;
+  }
+
+  .search {
+    width: 55%;
+  }
+
+  .header {
+    padding: 0 30px;
+  }
+}

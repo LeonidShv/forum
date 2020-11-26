@@ -1,0 +1,77 @@
+.profile__person {
+    display: flex;
+}
+
+.profile__icon {
+    width: 300px;
+    height: auto;
+}
+
+.profile__name {
+    color: #1E4F93;
+}
+
+.profile__name,
+.profile__city {
+    line-height: 1.5em;
+    font-size: 25px;
+}
+
+.profile {
+    padding: 100px 150px;
+}
+
+.profile__description {
+    margin-left: 70px;
+}
+
+.nav__profile-list {
+    display: flex;
+    width: fit-content;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.nav__item-profile:not(:last-child) {
+    margin-right: 15px;
+}
+
+.nav__item-profile {
+    display: block;
+}
+
+.nav__link-profile {
+    text-decoration: none;
+    font-size: 15px;
+    color: #666;
+    display: block;
+    line-height: 27px;
+}
+
+.nav__link-profile_active {
+    color: #F35D5F;
+    border-bottom: 2px solid #F35D5F;
+}
+
+.profile__nav {
+    margin: 50px 0 40px;
+} 
+
+.profile__info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__info-img {
+    max-width: 400px;
+}
+
+.profile__title {
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+.info-list__item {
+    line-height: 1.5em;
+    color: rgb(70, 69, 69);
+}
