@@ -17,7 +17,10 @@ function Questions(props) {
 
     return (
         <div className={classNameMain}>
-            <h2 className="title">All Questions</h2>
+            <div className="content__header">
+                <h2 className="title">All Questions</h2>
+                <button className="btn__ask">Ask Question</button>
+            </div>
             <div className="filter__block flex-end">
                 <Filter filterContent={filterContent} />
             </div>
