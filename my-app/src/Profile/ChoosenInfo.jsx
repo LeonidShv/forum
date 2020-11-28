@@ -8,13 +8,13 @@ function ChoosenInfo(props) {
             <div className="profile__info">
                 <div>
                     <h2 className="profile__title">{title}</h2>
-                    <ul className="profile__info-list">
-                        <li className="info-list__item">1 lorem lorem lorem lorem</li>
-                        <li className="info-list__item">2 lorem lorem lorem lorem</li>
-                        <li className="info-list__item">3 lorem lorem lorem lorem</li>
-                        <li className="info-list__item">4 lorem lorem lorem lorem</li>
-                        <li className="info-list__item">5 lorem lorem lorem lorem</li>
-                    </ul>
+                    <div className="profile__info-list">
+                        <p className="info-list__item">1 lorem lorem lorem lorem</p>
+                        <p className="info-list__item">1 lorem lorem lorem lorem</p>
+                        <p className="info-list__item">1 lorem lorem lorem lorem</p>
+                        <p className="info-list__item">1 lorem lorem lorem lorem</p>
+                        <p className="info-list__item">1 lorem lorem lorem lorem</p>
+                    </div>
                 </div>
                 {image}
             </div>

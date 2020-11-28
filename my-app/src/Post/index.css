@@ -1,0 +1,14 @@
+.answers__amount {
+    padding: 10px 30px;
+}
+
+.answer__write {
+    border: 1px solid #bbc0c4;
+    width: 60%;
+    margin: 20px 30px;
+}
+
+.answers__title {
+    padding: 20px 30px 5px;
+    font-weight: bold;
+}

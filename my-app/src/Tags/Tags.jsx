@@ -1,13 +1,11 @@
 import React from 'react';
 import Filter from '../Filter';
-import Tag from './Tag.jsx';
+import Tag from './Tag';
 import Search from '../Search';
 import './index.css';
 
 function Tags(props) {
     let { isTags } = props;
-    let classNameMain = isTags ? 'tags__wrap content' : 'tags__wrap d-none';
-
     const filterContent = [
         { btn: 'Popular', key: 'Popular_1' },
         { btn: 'Name', key: 'Name_2' },
@@ -15,7 +13,7 @@ function Tags(props) {
     ];
 
     return (
-        <div className={classNameMain}>
+        <div className="tags__wrap content">
             <h2 className="title">Tags</h2>
             <div className="filter__block space-between">
                 <Search />

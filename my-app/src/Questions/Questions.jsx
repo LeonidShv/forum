@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Question from './Question.jsx';
-import Filter from '../Filter/Filter.jsx';
+import Question from './Question';
+import Filter from '../Filter/Filter';
+import AnswerHeader from '../AnswerHeader';
 import './index.css';
 
 function Questions(props) {
     const [questions, setQuestions] = useState(0);
     let { isMain } = props;
-    let classNameMain = isMain ? 'content' : 'd-none';
     let filterContent = [
         { btn: 'Activity', key: 'Activity_1' },
         { btn: 'Votes', key: 'Votes_2' },
@@ -16,11 +16,8 @@ function Questions(props) {
     
 
     return (
-        <div className={classNameMain}>
-            <div className="content__header">
-                <h2 className="title">All Questions</h2>
-                <button className="btn__ask">Ask Question</button>
-            </div>
+        <div className="content">
+            <AnswerHeader />
             <div className="filter__block flex-end">
                 <Filter filterContent={filterContent} />
             </div>

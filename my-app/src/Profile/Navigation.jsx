@@ -1,5 +1,5 @@
 import React from 'react';
-import NavItem from './NavItem.jsx';
+import NavItem from './NavItem';
 
 function Navigation(props) {
     const {
@@ -7,7 +7,7 @@ function Navigation(props) {
         profileNav
     } = props;
 
-    const list = profileNav.map((item, i) => <NavItem profileNav={profileNav[i]} chooseContent={chooseContent} />);
+    const list = profileNav.map((item, i) => <NavItem profileNav={profileNav[i]} chooseContent={chooseContent} key={item.id} />);
 
     return (
         <nav className="profile__nav">
@@ -19,14 +19,3 @@ function Navigation(props) {
 }
 
 export default Navigation;
-
-// function NavItem(props) {
-//     const {title, active, id} = props.profileNav;
-//     const className = active ? 'nav__link-profile nav__link-profile_active' : 'nav__link-profile';
-
-//     return (
-//         <li className="nav__item-profile">
-//             <a onClick={props.chooseContent} data-id={id} href="#" className={className}>{title}</a>
-//         </li>
-//     )
-// }
