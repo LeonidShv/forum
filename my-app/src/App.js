@@ -7,14 +7,23 @@ import Tags from "./Tags";
 import Profile from "./Profile";
 import Post from "./Post";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import useAxios from 'axios-hooks';
 
 import "./reset.css";
 import "./index.css";
 
 function App() {
+  let urlQuestions = `https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=stackoverflow&filter=!LYA)NnjV0isg-d2(OzM7NX&key=9TT0ys3bQ*GHxowl*HitOg((`;
+
+
+  
   const [activeBurger, setActiveBurger] = useState(false);
   const [choosenContent, setChoosenContent] = useState('main');
-
+  // const [posts, setPosts] = useState([]);
+  const [{ data, loading, error, response }, refetch] = useAxios(urlQuestions);
+  console.log(data);
+  console.log('loading', loading);
+  console.log('error', error);
   function switchContent(e) {
     setChoosenContent(e.target.name);
   }
@@ -27,81 +36,29 @@ function App() {
     openNavigation();
     setChoosenContent(e.target.name);
   }
+  if (loading) {
+    return '';
+  }
   // let urlQ = `https://api.stackexchange.com/docs/answers#order=desc&sort=activity&filter=default&site=stackoverflow`;
-  //   let getQuestions = async () => {
-  //         let url = `https://api.stackexchange.com/2.2/answers?order=desc&sort=activity&site=stackoverflow&key=9TT0ys3bQ*GHxowl*HitOg((`;
-  //         const apiUrl = await fetch(`${url}`);
+    
+  
+  // let getQuestions = async (url1) => {
+  //         const apiUrl = await fetch(`${url1}`);
   //         const data = await apiUrl.json();
-  //         console.log(data);
-  //         // setQuestions(data.list);
+  //         console.log(data.items);
+  //         setPosts(data.items);
   //     }
   //     useEffect(() => {
-  //         getQuestions();
+  //         getQuestions(urlQuestions);
   //     }, []);
 
-  // useEffect(() => {
-  //   window.SE.init({
-  //     clientId: 19014,
-  //     key: '9TT0ys3bQ*GHxowl*HitOg((',
-  //     // channelUrl: 'https://leonidshv.github.io/usof/',
-  //     channelUrl: 'http://127.0.0.1:5500/index.html',
-  //     // channelUrl: 'https://6259f7a95320.ngrok.io',
-  //     complete: function(data) {
-  //         console.log('Run Example With Version '+data.version);
-
-  //     }
-  //   })
-  // });
-
-  // const do_login = () => {
-  //   window.SE.authenticate({
-  //     success: function(data) {
-  //       console.log(
-  //           'User Authorized with account id = ' +
-  //           data.networkUsers[0].account_id + ', got access token = ' +
-  //           data.accessToken
-  //       );
-  //       // getQuestions();
-  //   },
-  //   error: function(data) {
-  //     console.log('An error occurred:\n' + data.errorName + '\n' + data.errorMessage);
-  // },
-  // networkUsers: true,
-  // scope: ['write_access', 'private_info']
-  //   })
-  // }
-
-  // SE.init({
-  //     clientId: 19014,
-  //     key: '9TT0ys3bQ*GHxowl*HitOg((',
-  //     // channelUrl: 'https://leonidshv.github.io/usof/',
-  //     channelUrl: 'http://127.0.0.1:5500/index.html',
-  //     complete: function(data) {
-  //         console.log('Run Example With Version '+data.version);
-  //     }
-  // });
-
-  // SE.authenticate({
-  //         success: function(data) {
-  //             console.log(
-  //                 'User Authorized with account id = ' +
-  //                 data.networkUsers[0].account_id + ', got access token = ' +
-  //                 data.accessToken
-  //             );
-  //         },
-  //         error: function(data) {
-  //             console.log('An error occurred:\n' + data.errorName + '\n' + data.errorMessage);
-  //         },
-  //         networkUsers: true,
-  //         scope: ['write_access', 'private_info']
-  //     });
-
-  /***************** */
+  
 
 
 
   return (
     <>
+    <button onClick={refetch}>refetch</button>
       <Router>
         <Header switchContentBurger={switchContentBurger} openNavigation={openNavigation} switchContent={switchContent} activeBurger={activeBurger} />
         <main className="main">
@@ -121,7 +78,7 @@ function App() {
               <Post />
             </Route>
             <Route path="/">
-              <Questions />
+              <Questions posts={posts} />
             </Route>
           </Switch>
         </main>

@@ -12,6 +12,8 @@ function Tags(props) {
         { btn: 'New', key: 'New_3' }
     ];
 
+    // const listTags = posts.map(post => <Tag post={post} key={post.question_id} />);
+
     return (
         <div className="tags__wrap content">
             <h2 className="title">Tags</h2>

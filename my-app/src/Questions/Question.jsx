@@ -1,43 +1,46 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import { Link } from "react-router-dom";
+import TagsList from './TagsList';
 
 function Question(props) {
-  const { borderTop, titleNone } = props;
+  const { borderTop, titleNone, post: {
+    answer_count: answerCount,
+    score,
+    view_count: viewCount,
+    body,
+    title,
+    tags,
+    owner,
+    creation_date: creationDate
+  } } = props;
   const questionClassName = borderTop
     ? "list__question b-top"
     : "list__question";
 
     const titleClassName = titleNone ? 'question__title d-none' : 'question__title';
-
+    
   return (
     
     <div className={questionClassName}>
       <div className="question__rating">
-        <p className="rating__number">0</p>
+        <p className="rating__number">{answerCount}</p>
         <p className="rating__text">votes</p>
-        <p className="rating__number">0</p>
+        <p className="rating__number">{score}</p>
         <p className="rating__text">answers</p>
 
-        <p className="rating__text">3 views</p>
+        <p className="rating__text">{viewCount} views</p>
       </div>
       <div className="question__describe">
       <Link className={titleClassName} name="post" to="/post">
-            <h3 className={titleClassName}>how to build a tree in html?</h3>
+            <h3 className={titleClassName}>{title}</h3>
     </Link>
-        <p className="question__text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id repellat,
-          possimus, voluptatem harum ex maiores cupiditate vero repellendus nisi
-          doloribus modi consequatur temporibus consectetur saepe. Velit
-          recusandae saepe unde amet.
-        </p>
+        <div className="question__text" dangerouslySetInnerHTML={{__html: body}} >
+        </div>
 
         <div className="question__tags">
-          <button className="question__tag">tml</button>
-          <button className="question__tag">css</button>
-          <button className="question__tag">js</button>
+         <TagsList tags={tags} />
           <div className="question__infor">
-            <p className="question__date">ascked 40 secs ago</p>
-            <p className="question__author">Razan</p>
+            <p className="question__author">{owner.display_name}</p>
           </div>
         </div>
       </div>
