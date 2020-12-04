@@ -1,13 +1,18 @@
 import React from 'react';
 
-function User() {
+function User(props) {
+    const {tag: {
+        count,
+        name
+    }
+} = props;
     return (
         <div className="tag">
-            <p className="tag__title">JavaScript</p>
+            <p className="tag__title">{name}</p>
             <p className="tag__describe">
-                For questions regarding programming in ECMAScript (JavaScript/JS) and its various dialects/implementations (excluding ActionScript). Please
+                Users can find special information by {name} tag
                     </p>
-            <p className="tag__amount">2120354 questions</p>
+            <p className="tag__amount">{count} questions</p>
         </div>
     );
 }

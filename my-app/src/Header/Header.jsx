@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "./Navigation";
 import Search from "../Search";
+import SignIn from './SignIn';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./header.css";
 
@@ -18,6 +19,7 @@ function Header(props) {
         <span className="header__logo-text">stock questions</span>
       </button>
       <Search isHeader />
+      <SignIn />
       <Link to="/profile" name="profile" onClick={switchContent}>
         <div className="header__user">
           <img src="./img/ava.jpg" alt="user" className="header__photo" />

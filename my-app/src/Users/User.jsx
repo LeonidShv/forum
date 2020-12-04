@@ -1,12 +1,18 @@
-function User() {
+function User(props) {
+    const {user: {
+        display_name: name,
+        location,
+        reputation,
+        profile_image: imgUrl
+    }} = props;
+
     return (
         <div className="user">
-            <img src="https://i.stack.imgur.com/arsQA.jpg?s=96&g=1" alt="" className="user__icon" />
+            <img src={imgUrl} alt="" className="user__icon" />
             <div className="user__describe">
-                <p className="user__title">GMB</p>
-                <p className="user__info">Kuala Lumpur, Federal Territory of Kuala Lumpur, Malaysia</p>
-                <p className="user__number">222</p>
-                <p className="user__skils">sql, mysql, datetime</p>
+                <p className="user__title">{name}</p>
+                <p className="user__info">{location}</p>
+                <p className="user__number">{reputation}</p>
             </div>
         </div>
     );

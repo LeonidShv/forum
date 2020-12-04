@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import Filter from '../Filter';
 import User from './User';
 import Search from '../Search';
 import './index.css';
 
 function Users(props) {
+    const [users, setUsers] = useState({ users: [], isLoading: false, error: null });
+    let urlQuestions = `https://api.stackexchange.com/2.2/users?order=desc&sort=reputation&site=stackoverflow&filter=!406FePYJQRs6pOtJ1&key=9TT0ys3bQ*GHxowl*HitOg((`;
+    useEffect(() => {
+      fetch(urlQuestions)
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            setUsers({ users: result.items, isLoading: true, error: users.error });
+          },
+          (error) => {
+            setUsers({ users: users.users, isLoading: true, error: error });
+          }
+        );
+    }, []);
+  
+    if (!users.isLoading && users.users.length) {
+      return "load";
+    }
+
+    const listTags = users.users.map((user) => (
+        <User user={user} key={user.account_id} />
+    ));
+
     let { isUsers } = props;
     let filterContent = [
         { btn: 'Reputation', key: 'Reputation_1' },
@@ -23,14 +46,7 @@ function Users(props) {
             </div>
 
             <div className='users__list'>
-                <User />
-                <User />
-                <User />
-
-                <User />
-                <User />
-                <User />
-
+{listTags}
             </div>
         </div>
     );

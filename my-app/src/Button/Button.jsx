@@ -1,6 +1,9 @@
-function Button() {
+function Button(props) {
+    const {text, isAnswer, isSignIn, method} = props;
+    const className = isSignIn ? 'btn__sign-in' : 'btn__ask';
+
     return (
-        <button className="btn__ask">Ask Question</button>
+        <button className={className} onClick={method}>{text}</button>
     )
 }
 

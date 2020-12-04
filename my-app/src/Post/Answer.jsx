@@ -1,45 +1,33 @@
 import React, {useRef, useEffect} from "react";
 import { Link } from "react-router-dom";
-import TagsList from './TagsList';
 
-function Question(props) {
-  const { borderTop, titleNone, choosePost,post, post: {
-    answer_count: answerCount,
-    score,
-    view_count: viewCount,
+function Answer(props) {
+  const { borderTop, titleNone, choosePost, post, answer: {
     body,
-    title,
-    tags,
     owner,
-    creation_date: creationDate
+    score    
   } } = props;
   const questionClassName = borderTop
     ? "list__question b-top"
     : "list__question";
 
     const titleClassName = titleNone ? 'question__title d-none' : 'question__title';
-    const questionText = titleNone ? 'question__text_full' : 'question__text';
-
+console.log(props);
   return (
     
     <div className={questionClassName}>
       <div className="question__rating">
-        <p className="rating__number">{answerCount}</p>
-        <p className="rating__text">votes</p>
         <p className="rating__number">{score}</p>
-        <p className="rating__text">answers</p>
-
-        <p className="rating__text">{viewCount} views</p>
+        <p className="rating__text">votes</p>
       </div>
       <div className="question__describe">
-      <Link className={titleClassName} name="post" to="/post" onClick={() => choosePost(post)}>
+      {/* <Link className={titleClassName} name="post" to="/post" onClick={() => choosePost(post)}>
             <h3 className={titleClassName}>{title}</h3>
-    </Link>
-        <div className={questionText} dangerouslySetInnerHTML={{__html: body}} >
+    </Link> */}
+        <div className="question__text" dangerouslySetInnerHTML={{__html: body}} >
         </div>
 
         <div className="question__tags">
-         <TagsList tags={tags} />
           <div className="question__infor">
             <p className="question__author">{owner.display_name}</p>
           </div>
@@ -49,4 +37,4 @@ function Question(props) {
   );
 }
 
-export default Question;
+export default Answer;

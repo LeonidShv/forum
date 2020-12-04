@@ -1,12 +1,16 @@
-import Button from '../Button';
+import Button from "../Button";
 
-function AnswerHeader() {
-    return (
-        <div className="content__header">
-            <h2 className="title">All Questions</h2>
-            <Button />
-        </div>
-    )
+function AnswerHeader(props) {
+  const { title, isAnswer } = props;
+
+  const button = isAnswer ? '' : <Button text='Ask Question' />;
+
+  return (
+    <div className="content__header">
+      <h2 className="title">{title}</h2>
+      {button}
+    </div>
+  );
 }
 
 export default AnswerHeader;

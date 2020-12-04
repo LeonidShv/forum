@@ -5,7 +5,7 @@ function WriteAnswer() {
         <>
             <p className="answers__title">Your Answer</p>
             <textarea className="answer__write" cols="30" rows="10"></textarea>
-            <Button  />
+            <Button text='Write Answer' />
         </>
     )
 }

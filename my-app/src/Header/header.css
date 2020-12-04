@@ -19,6 +19,15 @@
   outline: none;
 }
 
+.sign-in {
+    display: flex;
+    line-height: 50px;
+    background: #fafafb;
+    justify-content: space-between;
+    align-items: center;
+    width: 210px;
+}
+
 .header__logo-icon {
   width: 30px;
   height: 30px;
