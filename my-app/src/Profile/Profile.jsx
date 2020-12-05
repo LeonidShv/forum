@@ -6,13 +6,19 @@ import { profileInfo, profileNav } from "./profileInfo";
 import { toggleProperty } from '../functions/toggleProperty';
 import "./index.css";
 
-function Profile() {
+function Profile(props) {
   const [activeNav, setActiveNav] = useState(profileNav);
   const [choosenContent, setChosenContent] = useState(profileInfo.history);
 
+  const {posts} = props;
+  let propsPost = posts.posts ? posts.posts[0] : false;
+  if (!posts.posts || !posts.posts.length ) {
+    return ' ';
+  }
+
   return (
     <div className="profile">
-      <Person />
+      <Person posts={propsPost} />
       <Navigation chooseContent={chooseContent} profileNav={activeNav} />
       <ChoosenInfo choosenContent={choosenContent} />
     </div>

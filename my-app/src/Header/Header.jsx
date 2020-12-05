@@ -2,11 +2,20 @@ import React from "react";
 import Navigation from "./Navigation";
 import Search from "../Search";
 import SignIn from './SignIn';
+
+import LoginedUser from './LoginedUser';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./header.css";
 
 function Header(props) {
-  let { chooseContent, openNavigation, activeBurger, switchContent, switchContentBurger } = props;
+  let { posts, chooseContent, openNavigation, activeBurger, switchContent, switchContentBurger, getCookie } = props;
+  console.log(posts.posts.length);
+  let choosenElement = !posts.posts.length ? <SignIn getCookie={getCookie} switchContent={switchContent} /> : <LoginedUser getCookie={getCookie} posts={posts.posts[0]} />
+
+  if (!posts.posts) {
+
+  }
+
 
   return (
     <header className="header">
@@ -19,14 +28,7 @@ function Header(props) {
         <span className="header__logo-text">stock questions</span>
       </button>
       <Search isHeader />
-      <SignIn />
-      <Link to="/profile" name="profile" onClick={switchContent}>
-        <div className="header__user">
-          <img src="./img/ava.jpg" alt="user" className="header__photo" />
-          <p className="header__login">Leo Smith</p>
-        </div>
-      </Link>
-
+      {choosenElement}
       <Navigation
         chooseContent={chooseContent}
         openNavigation={openNavigation}

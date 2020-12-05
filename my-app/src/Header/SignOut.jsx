@@ -3,12 +3,7 @@ import Button from '../Button';
 
 function SignIn(props) {
     const {getCookie} = props;
-
     const [userId, setUserId] = useState('123');
-    function handleChange(e) {
-        setUserId(e.target.value);      
-    }
-
     function saveId(e) {
         if (userId.length <= 3) {
             return;
@@ -23,11 +18,13 @@ function SignIn(props) {
         }
     }
 
+    function signOut() {
+        document.cookie = `userId=0;`;
+        getCookie('0000');
+    }
+
     return (
-        <div className="wrap__search sign-in">
-        <input className="search" type="text" value={userId} onChange={handleChange} onKeyPress={saveId} />
-        <Button text='Sign In' method={saveId} isSignIn  />
-    </div>
+        <Button text='Sign Out' method={signOut} isOut  />
     )
 }
 
