@@ -1,4 +1,5 @@
-.search {
+.search,
+.content__search {
     padding: 0 10px;
     margin-left: 30px;
     border: 1px solid #bbc0c4;
@@ -11,7 +12,8 @@
     position: relative;
 }
 
-.search-label::before {
+.search-label::before,
+.content__search-label::before {
     content: '';
     display: block;
     width: 15px;
@@ -22,5 +24,20 @@
     top: 50%;
     left: 40px;
     transform: translateY(-50%);
-    
+}
+
+@media (max-width: 600px) {
+    .content__search {
+        display: none;
+    }
+
+    .content__search-label::before {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .wrap__search {
+        display: none;
+    }
 }

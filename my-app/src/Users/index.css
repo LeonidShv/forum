@@ -46,3 +46,23 @@
 .user__skils {
     color: #0077cc;
 }
+
+@media (max-width: 900px) {
+    .user {
+        width: 50%;
+    }
+
+    .users__list {
+        padding: 20px 10px 20px 20px;
+    }
+
+    .user:not(:nth-child(3n)) {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .user {
+        width: 100%;
+    }
+}

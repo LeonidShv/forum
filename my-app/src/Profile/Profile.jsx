@@ -10,6 +10,11 @@ import "./index.css";
 function Profile(props) {
   const [activeNav, setActiveNav] = useState(profileNav);
   const [choosenContent, setChosenContent] = useState(profileInfo.history);
+  const [activeBurger, setActiveBurger] = useState(false);
+
+  function openNavigation() {
+    setActiveBurger(!activeBurger);
+  }
 
   const { posts } = props;
   let propsPost = posts.posts ? posts.posts[0] : false;
@@ -20,12 +25,13 @@ function Profile(props) {
   return (
     <div className="profile">
       <Person posts={propsPost} />
-      <Navigation chooseContent={chooseContent} profileNav={activeNav} />
+      <Navigation chooseContent={chooseContent} profileNav={activeNav} openNavigation={openNavigation} activeBurger={activeBurger} />
       <ChoosenInfo choosenContent={choosenContent} />
     </div>
   );
 
   function chooseContent(e) {
+    openNavigation();
     e.preventDefault();
     const key = e.target.dataset.id;
     setChosenContent(profileInfo[key]);

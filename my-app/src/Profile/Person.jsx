@@ -26,10 +26,10 @@ function Person(props) {
         <p className="profile__name">{name}</p>
         <p className="profile__city">{location}</p>
         <div dangerouslySetInnerHTML={{ __html: about_me }}></div>
-        <a href={link}>Link to stackoverflow profile</a>
-        <p>Reputation: {reputation}</p>
-        <p>Answer count: {answerCount}</p>
-        <p>Question count: {questionCount}</p>
+        <a className="profile__link" href={link}>Link to stackoverflow profile</a>
+        <p className="profile__text"><span className="profile__text_bold">Reputation:</span> {reputation}</p>
+        <p className="profile__text"><span className="profile__text_bold">Answer count:</span> {answerCount}</p>
+        <p className="profile__text"><span className="profile__text_bold">Question count:</span> {questionCount}</p>
       </div>
     </div>
   );

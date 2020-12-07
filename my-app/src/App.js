@@ -7,6 +7,7 @@ import Users from "./Users";
 import Tags from "./Tags";
 import Profile from "./Profile";
 import Post from "./Post";
+import Footer from "./Footer";
 
 import "./reset.css";
 import "./index.css";
@@ -114,6 +115,7 @@ function App() {
             </Route>
           </Switch>
         </main>
+        <Footer />
       </Router>
     </>
   );

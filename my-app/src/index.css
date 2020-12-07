@@ -31,3 +31,20 @@ body {
 .flex-end {
     justify-content: flex-end;
 }
+
+@media (max-width: 1200px) {
+    .w-35 {
+        width: auto;
+    }
+}
+
+
+@media (max-width: 550px) {
+    .w-35 {
+        width: auto;
+    }
+
+    .title {
+        text-align: center;
+    }
+}

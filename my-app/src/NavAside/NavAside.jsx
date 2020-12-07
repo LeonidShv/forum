@@ -25,7 +25,7 @@ function NavAside(props) {
 }
 
 NavAside.propTypes = {
-  choosenContent: PropTypes.func,
+  choosenContent: PropTypes.string,
   switchContent: PropTypes.func,
 };
 

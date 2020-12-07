@@ -41,3 +41,9 @@
     color: #000;
     background: #e5e6e8;
 }
+
+@media (max-width: 600px) {
+    .content__filter {
+        margin: auto;
+    }
+}

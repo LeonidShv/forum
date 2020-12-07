@@ -133,3 +133,40 @@
 .question__describe {
     overflow-x: auto;
 }
+
+@media (max-width: 900px) {
+    .list__question {
+        grid-template-columns: 1fr;
+        padding: 25px 10px 15px 10px;
+    }
+
+    .question__rating {
+        display: none;
+    }
+
+    .user {
+        width: 50%;
+    }
+
+    .user:not(:nth-child(3n)) {
+        margin-right: 0;
+    }
+
+    .content {
+        padding: 15px 50px 0 0;
+    }
+}
+
+@media (max-width: 550px) {
+    .content {
+        padding: 15px 5px 0 0;
+    }
+
+    .btn__ask {
+        margin: auto;
+    }
+
+    .content__header {
+        display: block;
+    }
+}

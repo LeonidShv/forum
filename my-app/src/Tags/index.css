@@ -50,3 +50,27 @@
 .tag__describe {
     line-height: 1.4em;
 }
+
+@media (max-width: 900px) {
+    .tag:not(:nth-child(4n)) {
+        margin-right: 0;
+    }
+    
+    .tag {
+        width: 50%;
+    }
+
+    .tags__list {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .tag {
+        width: 100%;
+    }
+
+    .tags__list {
+        padding: 20px;
+    }
+}

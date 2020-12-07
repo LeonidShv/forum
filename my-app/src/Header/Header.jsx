@@ -54,7 +54,7 @@ Header.propTypes = {
   posts: PropTypes.object,
   chooseContent: PropTypes.func,
   openNavigation: PropTypes.func,
-  activeBurger: PropTypes.func,
+  activeBurger: PropTypes.bool,
   switchContent: PropTypes.func,
   switchContentBurger: PropTypes.func,
   getCookie: PropTypes.func,

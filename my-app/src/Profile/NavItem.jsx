@@ -20,7 +20,7 @@ NavItem.propTypes = {
   title: PropTypes.string,
   active: PropTypes.bool,
   id: PropTypes.string,
-  profileNav: PropTypes.bool,
+  profileNav: PropTypes.object,
   chooseContent: PropTypes.func
 };
 

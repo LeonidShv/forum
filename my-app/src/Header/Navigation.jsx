@@ -34,7 +34,7 @@ function Navigation(props) {
 
 Navigation.propTypes = {
   switchContentBurger: PropTypes.func,
-  activeBurger: PropTypes.func,
+  activeBurger: PropTypes.bool,
   openNavigation: PropTypes.func
 };
 
