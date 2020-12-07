@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App.js';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
 
 // SE.init({
 //   clientId: 1,
@@ -16,7 +16,4 @@ import App from './App.js';
 //   networkUsers: true
 // });
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById("root"));

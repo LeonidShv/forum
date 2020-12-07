@@ -1,19 +1,20 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import Navigation from "./Navigation";
 import ChoosenInfo from "./ChoosenInfo";
 import Person from "./Person";
 import { profileInfo, profileNav } from "./profileInfo";
-import { toggleProperty } from '../functions/toggleProperty';
+import { toggleProperty } from "../functions/toggleProperty";
 import "./index.css";
 
 function Profile(props) {
   const [activeNav, setActiveNav] = useState(profileNav);
   const [choosenContent, setChosenContent] = useState(profileInfo.history);
 
-  const {posts} = props;
+  const { posts } = props;
   let propsPost = posts.posts ? posts.posts[0] : false;
-  if (!posts.posts || !posts.posts.length ) {
-    return ' ';
+  if (!posts.posts || !posts.posts.length) {
+    return " ";
   }
 
   return (
@@ -34,5 +35,9 @@ function Profile(props) {
     setActiveNav(toggleProperty(newActiveNav, key, "active")); //activeNav[x].active = true
   }
 }
+
+Profile.propTypes = {
+  posts: PropTypes.object,
+};
 
 export default Profile;

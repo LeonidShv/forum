@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-query": "^2.26.3",
@@ -18,12 +19,20 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js{,x}",
+    "format": "prettier-eslint --eslint-config-path ./.eslintrc.js --write '**/*.js'"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "./src/**/*.ts{,x}": [
+      "yarn run lint --fix",
+      "yarn run lint"
     ]
   },
   "browserslist": {
@@ -40,7 +49,14 @@
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
+    "eslint": "^7.15.0",
+    "eslint-plugin-react": "^7.21.5",
     "style-loader": "^2.0.0"
   },
-  "homepage": "."
+  "homepage": "http://.",
+  "description": "https://stackapps.com/apps/oauth/view/19014\r https://dashboard.ngrok.com/get-started/setup",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

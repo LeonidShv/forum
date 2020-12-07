@@ -1,21 +1,32 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Navigation from "./Navigation";
 import Search from "../Search";
-import SignIn from './SignIn';
-
-import LoginedUser from './LoginedUser';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import SignIn from "./SignIn";
+import LoginedUser from "./LoginedUser";
 import "./header.css";
 
 function Header(props) {
-  let { posts, chooseContent, openNavigation, activeBurger, switchContent, switchContentBurger, getCookie } = props;
-  console.log(posts.posts.length);
-  let choosenElement = !posts.posts.length ? <SignIn getCookie={getCookie} switchContent={switchContent} /> : <LoginedUser getCookie={getCookie} posts={posts.posts[0]} />
+  let {
+    posts,
+    chooseContent,
+    openNavigation,
+    activeBurger,
+    switchContent,
+    switchContentBurger,
+    getCookie,
+  } = props;
+  let choosenElement;
 
-  if (!posts.posts) {
-
+  if (posts.posts === undefined || !posts.posts.length) {
+    choosenElement = (
+      <SignIn getCookie={getCookie} switchContent={switchContent} />
+    );
+  } else {
+    choosenElement = (
+      <LoginedUser getCookie={getCookie} posts={posts.posts[0]} />
+    );
   }
-
 
   return (
     <header className="header">
@@ -38,5 +49,15 @@ function Header(props) {
     </header>
   );
 }
+
+Header.propTypes = {
+  posts: PropTypes.object,
+  chooseContent: PropTypes.func,
+  openNavigation: PropTypes.func,
+  activeBurger: PropTypes.func,
+  switchContent: PropTypes.func,
+  switchContentBurger: PropTypes.func,
+  getCookie: PropTypes.func,
+};
 
 export default Header;

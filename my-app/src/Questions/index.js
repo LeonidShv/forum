@@ -1,3 +1,3 @@
-import Questions from './Questions.jsx';
+import Questions from "./Questions.jsx";
 
 export default Questions;

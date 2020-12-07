@@ -4,34 +4,85 @@ import Tag from "./Tag";
 import Search from "../Search";
 import "./index.css";
 
-function Tags(props) {
-  const [tags, setTags] = useState({ tags: [], isLoading: false, error: null });
-  let urlQuestions = `https://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow&key=9TT0ys3bQ*GHxowl*HitOg((`;
+
+
+function Tags() {
+  const [posts, setPosts] = useState({
+    posts: [],
+    isLoading: false,
+    error: null,
+  });
+  const [userLink, setUserLink] = useState(
+    "https://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow&key=9TT0ys3bQ*GHxowl*HitOg(("
+  );
+  const filterContent = [
+    { btn: "Popular", key: "Activity_1", path: "popular", active: true },
+    { btn: "Activity", key: "Votes_2", path: "activity", active: false },
+    { btn: "Name", key: "Creation_3", path: "name", active: false },
+  ];
+  const [filterBtns, setFilterBtns] = useState(filterContent);
+
+  function changeFilter(path = "popular") {
+    setUserLink(
+      `https://api.stackexchange.com/2.2/tags?order=desc&sort=${path}&site=stackoverflow&key=9TT0ys3bQ*GHxowl*HitOg((`
+    );
+    let choosenBtn = [true, false, false];
+
+    switch (path) {
+      case "popular":
+        choosenBtn = [true, false, false];
+        break;
+      case "activity":
+        choosenBtn = [false, true, false];
+        break;
+      case "name":
+        choosenBtn = [false, false, true];
+        break;
+      default:
+        console.log("error in questions, changeFilter function");
+        break;
+    }
+
+    setFilterBtns([
+      {
+        btn: "Popular",
+        key: "Activity_1",
+        path: "popular",
+        active: choosenBtn[0],
+      },
+      {
+        btn: "Activity",
+        key: "Votes_2",
+        path: "activity",
+        active: choosenBtn[1],
+      },
+      { btn: "Name", key: "Creation_3", path: "name", active: choosenBtn[2] },
+    ]);
+  }
+
   useEffect(() => {
-    fetch(urlQuestions)
+    fetch(userLink)
       .then((res) => res.json())
       .then(
         (result) => {
-          setTags({ tags: result.items, isLoading: true, error: tags.error });
+          setPosts({
+            posts: result.items,
+            isLoading: true,
+            error: posts.error,
+          });
         },
         (error) => {
-          setTags({ tags: tags.tags, isLoading: true, error: error });
+          setPosts({ posts: posts.items, isLoading: true, error: error });
         }
       );
-  }, []);
+  }, [userLink]);
 
-  let { isTags } = props;
-  const filterContent = [
-    { btn: "Popular", key: "Popular_1" },
-    { btn: "Name", key: "Name_2" },
-    { btn: "New", key: "New_3" },
-  ];
-  if (!tags.isLoading && tags.tags.length) {
+  if (!posts.isLoading && posts.length) {
     return "load";
   }
 
-  const listTags = tags.tags.map((tag) => (
-    <Tag tag={tag} key={tag.count + tag.name} />
+  const listTags = posts.posts.map((post) => (
+    <Tag tag={post} key={post.count + post.name} />
   ));
 
   return (
@@ -39,7 +90,7 @@ function Tags(props) {
       <h2 className="title">Tags</h2>
       <div className="filter__block space-between">
         <Search />
-        <Filter filterContent={filterContent} />
+        <Filter filterContent={filterBtns} method={changeFilter} />
       </div>
 
       <div className="tags__list">{listTags}</div>

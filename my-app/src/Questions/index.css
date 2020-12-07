@@ -129,3 +129,7 @@
     max-width: 300px;
     max-height: 200px;
 }
+
+.question__describe {
+    overflow-x: auto;
+}

@@ -1,9 +1,10 @@
+import PropTypes from "prop-types";
+import React from "react";
 import Button from "../Button";
 
 function AnswerHeader(props) {
   const { title, isAnswer } = props;
-
-  const button = isAnswer ? '' : <Button text='Ask Question' />;
+  const button = isAnswer ? "" : <Button text="Ask Question" />;
 
   return (
     <div className="content__header">
@@ -12,5 +13,10 @@ function AnswerHeader(props) {
     </div>
   );
 }
+
+AnswerHeader.propTypes = {
+  title: PropTypes.string,
+  isAnswer: PropTypes.bool
+};
 
 export default AnswerHeader;
